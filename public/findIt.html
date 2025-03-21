@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find It | Fhaund It</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #F8F3EC;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: #D9CEC2;
+            padding: 15px;
+            background-image: url("https://media-hosting.imagekit.io//6538ca376a434863/logo.png?Expires=1836811963&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=S9wUQW9Q-zKBPTkpWLOWNI47Oa63ajrUTOzqhyE31Dt47mfemi7t8LVrPj-S3~WimqfrdBODlPCm38xCPA3Hv0ur3KV96ofqbmMKjyteRXQOhf-DsrSKLYx~LULxKJdgLOW6g-3Ld-OknQd-4mJ8BW6~-WPRAT3defFdtnXBs3L4vdCXOgzlEKmu1XuLtcWENxgUHZLwpar~JXsEMb59P~UwgMM4j4sly5wYwX1RrcbOK5s0RtcO1G9mY6BIVVkY8Qo979RH9x~T746fAtDPb7xjrxqduR6DkQRkaHoZ3ba1bOanSMA4x2swX0BV4kjfkWggGx~eeFPGNzCa-uD-oA__"); 
+            background-size: 8%;
+            width: 90%;
+            background-repeat: no-repeat;
+            background-position: center;
+            margin: 2%;
+            position: absolute;
+        }
+        .navbar a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            position: relative;
+        }
+        .logo img {
+            background-image: url("https://media-hosting.imagekit.io//6538ca376a434863/logo.png?Expires=1836811963&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=S9wUQW9Q-zKBPTkpWLOWNI47Oa63ajrUTOzqhyE31Dt47mfemi7t8LVrPj-S3~WimqfrdBODlPCm38xCPA3Hv0ur3KV96ofqbmMKjyteRXQOhf-DsrSKLYx~LULxKJdgLOW6g-3Ld-OknQd-4mJ8BW6~-WPRAT3defFdtnXBs3L4vdCXOgzlEKmu1XuLtcWENxgUHZLwpar~JXsEMb59P~UwgMM4j4sly5wYwX1RrcbOK5s0RtcO1G9mY6BIVVkY8Qo979RH9x~T746fAtDPb7xjrxqduR6DkQRkaHoZ3ba1bOanSMA4x2swX0BV4kjfkWggGx~eeFPGNzCa-uD-oA__");
+            width: 100px;
+            vertical-align: middle;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 30px 5%;
+            padding-top: 80px;
+        }
+
+        .header-title {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .sort-dropdown {
+            padding: 6px;
+            font-size: 16px;
+            border-radius: 9px;
+            background-color: #d2e0d3;
+        }
+
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 20px;
+            justify-items: center;
+        }
+        .card {
+            background: #f5e6e0;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 300px;
+        }
+        .image-box {
+            width: 100px;
+            height: 100px;
+            border: 1px solid #ccc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+        .image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .details {
+            display: none;
+            margin-top: 10px;
+        }
+
+        footer {
+            background-color: #f8f8f8;
+            padding: 15px 20px;
+            border-top: 2px solid #000;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+        }
+
+        .footer-logo img {
+            width: 130px;
+            height: 50px; 
+        }
+
+        .footer-text {
+            text-align: center;
+            font-size: 14px;
+            color: #333;
+            flex: 1; 
+        }
+
+        .footer-right {
+            text-align: right;
+            font-size: 14px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <!--NAVIGATION-->
+    <nav class="navbar">
+        <a href="contact.html">contact us</a>
+        <a href="findIt.html">find it</a>
+        <div>
+            <section class="logo"></section>
+        </div>
+        <a href="home.html">home</a>
+        <a href="about.html">about us</a>
+    </nav>
+
+    <!-- Header with Sorting -->
+    <div class="header-container">
+        <h1 class="header-title">Lost Something?</h1>
+        <select class="sort-dropdown" id="sortOptions" onchange="sortCards()">
+            <option value="name">sort by name</option>
+            <option value="location">sort by location</option>
+            <option value="date">sort by date</option>
+        </select>
+    </div>
+
+    <!-- Cards Section -->
+    <div class="cards-container" id="cardsContainer">
+        <div class="card" data-name="Wallet" data-location="Library" data-date="2025-03-15">
+            <div class="image-box" onclick="toggleDetails(this)">
+                <img src="https://media-hosting.imagekit.io//4679e6043b5a4c9a/item%20sample.jpg?Expires=1837005103&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=JLtKLxj2g7GlUxBC2AoRKXE00IbxMe9QI5Q66EdHSUMjXUUe9~VHn17pzcSBY7VEIH3DXCf8gs0bEzaqgQZwCQN~4TCUxjR5E02lVVgP-72r6zEYVh0L6HmVQh8ecjI1HWP11fgqaNT0RBAA1kvOWgyOlJSeQ~d334bRFZxJiD2mtMNxnI9mLQIjzdfg3stypUxxVJlRkvFQbVHB-dHlZBo9L3pCO1VGQY1soDEIesYMjkIxjox1CHcqBptwEIWgENOZLK3zeNfK1kCet5OzHTOHf-YnIW56U4ONu5FG5ixOQ2YhfAuodewVRE4G2nBLI4ZtYkPLgSGfuYpUxG87TQ__" alt="Lost Item">
+            </div>
+            <div class="details">
+                <p><strong>Name:</strong> Flask</p>
+                <p><strong>Location found:</strong> Court </p>
+                <p><strong>Date found:</strong> 2025-03-19</p>
+                <p><strong>Status:</strong> Available</p>
+            </div>
+        </div>
+
+        <div class="card" data-name="Wallet" data-location="Library" data-date="2025-03-15">
+            <div class="image-box" onclick="toggleDetails(this)">
+                <img src="https://media-hosting.imagekit.io//4679e6043b5a4c9a/item%20sample.jpg?Expires=1837005103&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=JLtKLxj2g7GlUxBC2AoRKXE00IbxMe9QI5Q66EdHSUMjXUUe9~VHn17pzcSBY7VEIH3DXCf8gs0bEzaqgQZwCQN~4TCUxjR5E02lVVgP-72r6zEYVh0L6HmVQh8ecjI1HWP11fgqaNT0RBAA1kvOWgyOlJSeQ~d334bRFZxJiD2mtMNxnI9mLQIjzdfg3stypUxxVJlRkvFQbVHB-dHlZBo9L3pCO1VGQY1soDEIesYMjkIxjox1CHcqBptwEIWgENOZLK3zeNfK1kCet5OzHTOHf-YnIW56U4ONu5FG5ixOQ2YhfAuodewVRE4G2nBLI4ZtYkPLgSGfuYpUxG87TQ__" alt="Lost Item">
+            </div>
+            <div class="details">
+                <p><strong>Name:</strong> Wallet</p>
+                <p><strong>Location found:</strong> Library</p>
+                <p><strong>Date found:</strong> 2025-03-15</p>
+                <p><strong>Status:</strong> Available</p>
+            </div>
+        </div>
+
+        <div class="card" data-name="Keys" data-location="Cafeteria" data-date="2025-03-10">
+            <div class="image-box" onclick="toggleDetails(this)">
+                <img src="https://media-hosting.imagekit.io//4679e6043b5a4c9a/item%20sample.jpg?Expires=1837005103&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=JLtKLxj2g7GlUxBC2AoRKXE00IbxMe9QI5Q66EdHSUMjXUUe9~VHn17pzcSBY7VEIH3DXCf8gs0bEzaqgQZwCQN~4TCUxjR5E02lVVgP-72r6zEYVh0L6HmVQh8ecjI1HWP11fgqaNT0RBAA1kvOWgyOlJSeQ~d334bRFZxJiD2mtMNxnI9mLQIjzdfg3stypUxxVJlRkvFQbVHB-dHlZBo9L3pCO1VGQY1soDEIesYMjkIxjox1CHcqBptwEIWgENOZLK3zeNfK1kCet5OzHTOHf-YnIW56U4ONu5FG5ixOQ2YhfAuodewVRE4G2nBLI4ZtYkPLgSGfuYpUxG87TQ__" alt="Lost Item">
+            </div>
+            <div class="details">
+                <p><strong>Name:</strong> Keys</p>
+                <p><strong>Location found:</strong> Cafeteria</p>
+                <p><strong>Date found:</strong> 2025-03-10</p>
+                <p><strong>Status:</strong> Available</p>
+            </div>
+        </div>
+
+        <div class="card" data-name="Phone" data-location="Gym" data-date="2025-03-18">
+            <div class="image-box" onclick="toggleDetails(this)">
+                <img src="https://media-hosting.imagekit.io//4679e6043b5a4c9a/item%20sample.jpg?Expires=1837005103&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=JLtKLxj2g7GlUxBC2AoRKXE00IbxMe9QI5Q66EdHSUMjXUUe9~VHn17pzcSBY7VEIH3DXCf8gs0bEzaqgQZwCQN~4TCUxjR5E02lVVgP-72r6zEYVh0L6HmVQh8ecjI1HWP11fgqaNT0RBAA1kvOWgyOlJSeQ~d334bRFZxJiD2mtMNxnI9mLQIjzdfg3stypUxxVJlRkvFQbVHB-dHlZBo9L3pCO1VGQY1soDEIesYMjkIxjox1CHcqBptwEIWgENOZLK3zeNfK1kCet5OzHTOHf-YnIW56U4ONu5FG5ixOQ2YhfAuodewVRE4G2nBLI4ZtYkPLgSGfuYpUxG87TQ__" alt="Lost Item">
+            </div>
+            <div class="details">
+                <p><strong>Name:</strong> Phone</p>
+                <p><strong>Location found:</strong> Gym</p>
+                <p><strong>Date found:</strong> 2025-03-18</p>
+                <p><strong>Status:</strong> Available</p>
+            </div>
+        </div>
+
+        <div class="card" data-name="Phone" data-location="Gym" data-date="2025-03-18">
+            <div class="image-box" onclick="toggleDetails(this)">
+                <img src="https://media-hosting.imagekit.io//4679e6043b5a4c9a/item%20sample.jpg?Expires=1837005103&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=JLtKLxj2g7GlUxBC2AoRKXE00IbxMe9QI5Q66EdHSUMjXUUe9~VHn17pzcSBY7VEIH3DXCf8gs0bEzaqgQZwCQN~4TCUxjR5E02lVVgP-72r6zEYVh0L6HmVQh8ecjI1HWP11fgqaNT0RBAA1kvOWgyOlJSeQ~d334bRFZxJiD2mtMNxnI9mLQIjzdfg3stypUxxVJlRkvFQbVHB-dHlZBo9L3pCO1VGQY1soDEIesYMjkIxjox1CHcqBptwEIWgENOZLK3zeNfK1kCet5OzHTOHf-YnIW56U4ONu5FG5ixOQ2YhfAuodewVRE4G2nBLI4ZtYkPLgSGfuYpUxG87TQ__" alt="Lost Item">
+            </div>
+            <div class="details">
+                <p><strong>Name:</strong> Earphones</p>
+                <p><strong>Location found:</strong> Student Center</p>
+                <p><strong>Date found:</strong> 2024-03-18</p>
+                <p><strong>Status:</strong> Available</p>
+            </div>
+        </div>
+
+        <div class="card" data-name="Phone" data-location="Gym" data-date="2025-03-18">
+            <div class="image-box" onclick="toggleDetails(this)">
+                <img src="https://media-hosting.imagekit.io//4679e6043b5a4c9a/item%20sample.jpg?Expires=1837005103&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=JLtKLxj2g7GlUxBC2AoRKXE00IbxMe9QI5Q66EdHSUMjXUUe9~VHn17pzcSBY7VEIH3DXCf8gs0bEzaqgQZwCQN~4TCUxjR5E02lVVgP-72r6zEYVh0L6HmVQh8ecjI1HWP11fgqaNT0RBAA1kvOWgyOlJSeQ~d334bRFZxJiD2mtMNxnI9mLQIjzdfg3stypUxxVJlRkvFQbVHB-dHlZBo9L3pCO1VGQY1soDEIesYMjkIxjox1CHcqBptwEIWgENOZLK3zeNfK1kCet5OzHTOHf-YnIW56U4ONu5FG5ixOQ2YhfAuodewVRE4G2nBLI4ZtYkPLgSGfuYpUxG87TQ__" alt="Lost Item">
+            </div>
+            <div class="details">
+                <p><strong>Name:</strong> Glasses</p>
+                <p><strong>Location found:</strong> SJH 7th Floor</p>
+                <p><strong>Date found:</strong> 2024-11-19</p>
+                <p><strong>Status:</strong> Available</p>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="images/logo.png" alt="FhaundIT Logo">
+            </div>
+            <div class="footer-text">
+                <p>In collaboration with HAU Campus Services Office</p>
+                <p><a href="https://hau.edu.ph">hau.edu.ph</a></p>
+                <p>#123 Holy Angel St, Angeles, 2009 Pampanga, Philippines</p>
+            </div>
+            <div class="footer-right">
+                <p>©2025 WD-302</p>
+                <p>All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleDetails(element) {
+            let details = element.nextElementSibling;
+            details.style.display = details.style.display === "block" ? "none" : "block";
+        }
+
+        function sortCards() {
+            let container = document.getElementById("cardsContainer");
+            let cards = Array.from(container.getElementsByClassName("card"));
+            let sortBy = document.getElementById("sortOptions").value;
+
+            cards.sort((a, b) => {
+                let aValue = a.getAttribute("data-" + sortBy).toLowerCase();
+                let bValue = b.getAttribute("data-" + sortBy).toLowerCase();
+                return aValue.localeCompare(bValue);
+            });
+
+            cards.forEach(card => container.appendChild(card));
+        }
+
+        function fetchItems() {
+            fetch("http://localhost:3000/api/items")
+            .then(response => response.json())
+            .then(items => {
+                let container = document.getElementById("cardsContainer");
+                container.innerHTML = ""; // Clear old items
+
+                items.forEach(item => {
+                    let card = document.createElement("div");
+                    card.classList.add("card");
+                    card.innerHTML = `
+                        <div class="image-box">
+                            <img src="https://via.placeholder.com/100" alt="${item.name}">
+                        </div>
+                        <div class="details">
+                            <p><strong>Name:</strong> ${item.name}</p>
+                            <p><strong>Description:</strong> ${item.description}</p>
+                            <p><strong>Location found:</strong> ${item.location}</p>
+                            <p><strong>Date found:</strong> ${item.dateFound}</p>
+                            <p><strong>Status:</strong> ${item.status}</p>
+                        </div>
+                    `;
+                    container.appendChild(card);
+                });
+            })
+            .catch(err => console.error("Error fetching items:", err));
+        }
+
+    window.onload = fetchItems;
+    </script>
+</body>
+</html>

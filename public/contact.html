@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Fhaund It</title>
+    <style>
+ 
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #F8F3EC;
+            background-image: url("https://media-hosting.imagekit.io//dd3d74c1c3174084/pwd.png?Expires=1836909245&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=IGrQxZm5lLUZkWHtIZGaeKR2YwQx75nwHCbXBp~4byPlrL4uoVMHWmubPDjcx7Nb~r13pVeuBTtqzPuH9t6J13O-p0cHVx1gkfVvt9rsAIwFMA2K6YozOm~Z~cz9ABBkuQDn4JWlEAVBV~CtTbbRW7mbKQ2wO~gsysTKsuY3f~4bHRPUQfsMVP9BH5RXG~Ro6iPKZ1HkiankSvC-n~mU4~QVYlptwSBW6fHAa2tJJWz66Q5z7555VApNLaKUsO~vAgZRaG~YZCbcIwnNNpZnMxXUfP~8HePC3AlGXzTRGLqTiADU0gOMllRGmq~P5J73XCHU9umJcnvN3kdOLr7nbQ__") ;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: #D9CEC2;
+            padding: 15px;
+            background-image: url("https://media-hosting.imagekit.io//6538ca376a434863/logo.png?Expires=1836811963&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=S9wUQW9Q-zKBPTkpWLOWNI47Oa63ajrUTOzqhyE31Dt47mfemi7t8LVrPj-S3~WimqfrdBODlPCm38xCPA3Hv0ur3KV96ofqbmMKjyteRXQOhf-DsrSKLYx~LULxKJdgLOW6g-3Ld-OknQd-4mJ8BW6~-WPRAT3defFdtnXBs3L4vdCXOgzlEKmu1XuLtcWENxgUHZLwpar~JXsEMb59P~UwgMM4j4sly5wYwX1RrcbOK5s0RtcO1G9mY6BIVVkY8Qo979RH9x~T746fAtDPb7xjrxqduR6DkQRkaHoZ3ba1bOanSMA4x2swX0BV4kjfkWggGx~eeFPGNzCa-uD-oA__"); 
+            background-size: 8%;
+            width: 90%;
+            background-repeat: no-repeat;
+            background-position: center;
+            margin: 2%;
+        }
+        .navbar a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            position: relative;
+        }
+        .logo img {
+            background-image: url("https://media-hosting.imagekit.io//6538ca376a434863/logo.png?Expires=1836811963&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=S9wUQW9Q-zKBPTkpWLOWNI47Oa63ajrUTOzqhyE31Dt47mfemi7t8LVrPj-S3~WimqfrdBODlPCm38xCPA3Hv0ur3KV96ofqbmMKjyteRXQOhf-DsrSKLYx~LULxKJdgLOW6g-3Ld-OknQd-4mJ8BW6~-WPRAT3defFdtnXBs3L4vdCXOgzlEKmu1XuLtcWENxgUHZLwpar~JXsEMb59P~UwgMM4j4sly5wYwX1RrcbOK5s0RtcO1G9mY6BIVVkY8Qo979RH9x~T746fAtDPb7xjrxqduR6DkQRkaHoZ3ba1bOanSMA4x2swX0BV4kjfkWggGx~eeFPGNzCa-uD-oA__");
+            width: 100px;
+            vertical-align: middle;
+        }
+
+        .container {
+            width: auto;
+            height: auto;
+        }
+
+        .form-container {
+            background: #f0dfd4;
+            padding: 20px;
+            margin: 20px auto;
+            border-radius: 35px;
+            display: flex;
+            width: 60%;
+            margin-top: 50px;
+        }
+
+        .form-container img {
+            width: 25%;
+            height: 25%;
+            margin-top: 2cm;
+        }
+
+        .form-container h2 {
+            font-size: x-large;
+        }
+
+        .form-content {
+            width: 60%;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin: 2cm 3cm
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            font-size: 14px;
+            background-color: #97B3AE ;
+        }
+
+        .name-inputs {
+            display: flex;
+            gap: 10px;
+        }
+
+        .name-inputs input {
+            width: 48%;
+        }
+
+        textarea {
+            height: 80px;
+            resize: none;
+        }
+
+        .submit-btn {
+            background-color: #7a9486;
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 15px;
+            font-size: 14px;
+            cursor: pointer;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .visit-container {
+            padding: 20px;
+            margin: 30px auto;
+            border-radius: 35px;
+            width: 60%;
+        } 
+
+        .visit-container h2 {
+            text-align: right;
+            font-size: 40px;
+        }
+
+        .visit-container img {
+            width: 100%;
+            border-radius: 35px;
+        }
+
+        .visit-container p {
+            text-align: center;
+            font-weight: bold;
+        }
+
+        footer {
+            background-color: #f8f8f8;
+            padding: 15px 20px;
+            border-top: 2px solid #000;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+        }
+
+        .footer-logo img {
+            width: 130px;
+            height: 50px; 
+        }
+
+        .footer-text {
+            text-align: center;
+            font-size: 14px;
+            color: #333;
+            flex: 1; 
+        }
+
+        .footer-right {
+            text-align: right;
+            font-size: 14px;
+            color: #333;
+        }
+
+    </style>
+</head>
+<body>
+    <!--NAVIGATION-->
+    <nav class="navbar">
+        <a href="contact.html">contact us</a>
+        <a href="findIt.html">find it</a>
+        <div>
+            <section class="logo"></section>
+        </div>
+        <a href="home.html">home</a>
+        <a href="about.html">about us</a>
+    </nav>
+    <!---->
+
+    <div class="container">
+        <div class="form-container">
+            <h2>Send us a message!</h2>
+            <img src="https://media-hosting.imagekit.io//f070b1ce337c43ba/contact-icon.png?Expires=1836909280&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=oQCI5X9K7KnyeIuHEV540dGlxuyu5LXlBBDtjicDizMvDF2j9rJeEW6ap--wWwuptREanbW0e86O4vOiwRYgfCYKnBtXEphds86omqqa8a0uO1D9oF19iJionn~4WE0RfFktsq6L1zOXkNfxr94YiEzMrxgSdZ49t4K21cpN9CcI5y5cVmgM9BwOumLICIJIbpFxQFjDQycVkoqM6XztWJLOBzXVNjfWzbp-3WVyzTDxg0FlraIJNHDpafrVf-i27~7M4yJ8WIUEhuqsijud-qb~48Jyt14YJ5ZShnu5oYT9GzIkzFkfqR~3gqhOD6vJ9K7gROynbsXpE9KHk8V0-g__" alt="Contact Icon">
+            <div class="form-content">
+                <form action="#" method="POST">
+                    <div class="name-inputs">
+                        <input type="text" name="firstName" placeholder="First Name" required>
+                        <input type="text" name="lastName" placeholder="Last Name" required>
+                    </div>
+                    <input type="email" name="email" placeholder="Email" required>
+                    <textarea name="message" placeholder="Your message" required></textarea>
+                    <button type="submit" class="submit-btn">Submit</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="visit-container">
+            <h2>Visit Us</h2>
+            <img src="https://media-hosting.imagekit.io//6b8ebbaa526c486b/hau_map.jpg?Expires=1836909343&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=Ez2-7LGlWF87WXiG06488EjLNvVIsIMTgjuszcHtyCB6fZ94YM8d1C0iQ6TiJF9jgUJ51lgdBhC1QcFH~lAwFtQ9EsfprrYXPDCuFagOyzGG6nswd~OaPOEaPmF6dH42b-UENqxcGYEnEtjKIUUehtHCUWhZloCB2wrSJ9fBFc8mWGxLanMe8MW-9uwVEdS5doF2IuqR3u~ncgVCtchRE41ueEecYCYcfgoKxJnxSH6XAaLec2C59u3XMi5pOgeIxvycArGlQ1JlXnhiiIBXTHYzrVwudZ3MDYWhuE~Dz5scDoeAKVpN3V-gtJN8icDoWzi5-gL9b1Z07p9T9gNOfg__" alt="Map Location">
+            <p>First floor, Don Juan Nepomuceno Bldg, near the Center of Kapampangan Studies</p>
+        </div>
+        <br>
+        <br>
+
+        <footer>
+            <div class="footer-container">
+                <div class="footer-logo">
+                    <img src="https://media-hosting.imagekit.io//cbb3a3e574da49c7/logo.png?Expires=1836909364&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=CoJ4GQxW6pA2NLgA82XOWjDQ0no1xZ~rCSaHkheqgWPVZ8Vz1U9CDtuW7gFMIW6pQi0nNDnjL58w7pgx~6MZOXJbQuNxDMaBeTEjiqlR4NZdGV6QCXQ2ZcViayhj4-aBu6jePf4ZktBJFCUnxqXwH1GH7ArKL08ZpnKFEWwFu6FlBuL9yie31YfYTPEeZ8PjBmK1Ov-3Gl5MwqmKicqY8-y-hRe4i~7up9xREy7mty33O6L3sMgxB-j-lS~r2eWq8AsRsI3g5BDQQdumDXHtpkOJXnA8lSqO4TlU2dgk-mrXWdsW9XUzQBB9sFvNdotopmLJK5c5V3IlmFPm-9dnOw__" alt="fHAUnd It Logo">
+                </div>
+                <div class="footer-text">
+                    <p>In collaboration with HAU Campus Services Office</p>
+                    <p><a href="https://hau.edu.ph">hau.edu.ph</a></p>
+                    <p>#123 Holy Angel St, Angeles, 2009 Pampanga, Philippines</p>
+                </div>
+                <div class="footer-right">
+                    <p>©2025 WD-302</p>
+                    <p>All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+</body>
+</html> 

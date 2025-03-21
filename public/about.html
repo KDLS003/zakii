@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Fhaund It</title>
+    <style>
+ 
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #F8F3EC;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: #D9CEC2;
+            padding: 15px;
+            background-image: url("https://media-hosting.imagekit.io//6538ca376a434863/logo.png?Expires=1836811963&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=S9wUQW9Q-zKBPTkpWLOWNI47Oa63ajrUTOzqhyE31Dt47mfemi7t8LVrPj-S3~WimqfrdBODlPCm38xCPA3Hv0ur3KV96ofqbmMKjyteRXQOhf-DsrSKLYx~LULxKJdgLOW6g-3Ld-OknQd-4mJ8BW6~-WPRAT3defFdtnXBs3L4vdCXOgzlEKmu1XuLtcWENxgUHZLwpar~JXsEMb59P~UwgMM4j4sly5wYwX1RrcbOK5s0RtcO1G9mY6BIVVkY8Qo979RH9x~T746fAtDPb7xjrxqduR6DkQRkaHoZ3ba1bOanSMA4x2swX0BV4kjfkWggGx~eeFPGNzCa-uD-oA__"); 
+            background-size: 8%;
+            width: 90%;
+            background-repeat: no-repeat;
+            background-position: center;
+            margin: 2%;
+            position: relative; 
+        }
+        .navbar a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            position: relative;
+        }
+        .logo img {
+            background-image: url("https://media-hosting.imagekit.io//6538ca376a434863/logo.png?Expires=1836811963&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=S9wUQW9Q-zKBPTkpWLOWNI47Oa63ajrUTOzqhyE31Dt47mfemi7t8LVrPj-S3~WimqfrdBODlPCm38xCPA3Hv0ur3KV96ofqbmMKjyteRXQOhf-DsrSKLYx~LULxKJdgLOW6g-3Ld-OknQd-4mJ8BW6~-WPRAT3defFdtnXBs3L4vdCXOgzlEKmu1XuLtcWENxgUHZLwpar~JXsEMb59P~UwgMM4j4sly5wYwX1RrcbOK5s0RtcO1G9mY6BIVVkY8Qo979RH9x~T746fAtDPb7xjrxqduR6DkQRkaHoZ3ba1bOanSMA4x2swX0BV4kjfkWggGx~eeFPGNzCa-uD-oA__");
+            width: 100px;
+            vertical-align: middle;
+        }
+        footer {
+            background-color: #f8f8f8;
+            padding: 15px 20px;
+            border-top: 2px solid #000;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+        }
+
+        .footer-logo img {
+            width: 130px;
+            height: 50px; 
+        }
+
+        .footer-text {
+            text-align: center;
+            font-size: 14px;
+            color: #333;
+            flex: 1; 
+        }
+
+        .footer-right {
+            text-align: right;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .container h1 {
+            font-weight: bold;
+            text-align: center;
+            margin-left: 5px;
+        }
+
+        .container {
+            margin-top: 100px;
+        }
+
+        .container img {
+            margin-left: 275px;
+        }
+
+        .main-body .container {
+            margin-top: 50px;
+        }
+
+        .info-box{
+            background-color: #f0ddd6;
+            width: 80%;
+            height: 90%;
+            margin-left: 175px ;
+            border-radius: 50px;
+        }
+
+        .info-box h3 {
+            text-align: right;
+            margin-right: 4cm;
+            padding-top: 1cm;
+            padding-bottom: 1cm;
+            font-size: 45px;
+            font-weight: bold;
+            padding-bottom: 7px;
+        }
+
+        .info-box p {
+            font-weight: bold;
+            text-align: center;
+            padding-bottom: 1cm;
+            font-size: larger;
+            margin: 1cm 1cm;
+        }
+
+        .what-box{
+            width: 80%;
+            height: 90%;
+            margin-left: 175px ;
+            border-radius: 50px;
+        }
+
+        .what-box h3 {
+            text-align: left;
+            margin-left: 1cm;
+            padding-top: 1cm;
+            padding-bottom: 1cm;
+            font-size: 45px;
+            font-weight: bold;
+            padding-bottom: 7px;
+        }
+
+        .what-box p {
+            font-weight: bold;
+            text-align: center;
+            padding-bottom: 1cm;
+            font-size: larger;
+            margin: 1cm 2cm;
+        }
+
+        .mission-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f5f1ea;
+            width: 80%;
+            padding-bottom: 20px;
+            border-radius: 50px;
+            height: 90%;
+            margin-left: 175px ;
+        }
+
+        .mission-content {
+            display: flex;
+            align-items: center;
+            background-color: #97B3AE;
+            padding: 20px;
+            border-radius: 15px;
+            max-width: 900px;
+            gap: 20px;
+        }
+
+        .mission-images {
+            display: flex;
+            gap: 10px; 
+            margin-left: 2cm ;
+        }
+
+        .mission-image {
+            width: 60%; 
+            height: auto;
+        }
+
+        .mission-text {
+            max-width: 500px;
+        }
+
+        .mission-text h2 {
+            text-align: right;
+            margin-right: 3cm;
+            padding-top: 1cm;
+            padding-bottom: 1cm;
+            font-size: 45px;
+            font-weight: bold;
+            padding-bottom: 7px;
+
+        }
+
+        .mission-text p {
+            font-weight: bold;
+            text-align: center;
+            padding-bottom: 1cm;
+            font-size: larger;
+            margin: 1cm 2cm;
+        }
+    </style>
+</head>
+<body>
+    <!--NAVIGATION-->
+    <nav class="navbar">
+        <a href="contact.html">contact us</a>
+        <a href="findIt.html">find it</a>
+        <div>
+            <section class="logo"></section>
+        </div>
+        <a href="home.html">home</a>
+        <a href="about.html">about us</a>
+    </nav>
+
+    <div class="main-body">
+        <div class="container">
+            <h1>About Us</h1>
+            <img src="https://media-hosting.imagekit.io//ad84c784d8b242b5/group.png?Expires=1836909756&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=oV4jW008KrAwiwiHEW2i-Eppqgfi3io8eJ3mNj2LK5UFq8jNnaL9UANrPVRiCfdIhAcf1T2c4N-k5xCuQeWuiwLjqeSp6Oiecjh2zjJ7TFV1F6NQSK4dhAa2Fk0fOQ7EOcSfAZeJYrCl3dwxV3bRGgn4XgbPlKoQJy~Jf8pbW38HFYGaOHJMd4dRfkOBTdLqfog2zvq6eE7GVd9Vf-X8mpK0fuB2gOi8ZwmV19nKkRH~iJAi7U3sPuVjrpIA-uOziqNLAzGjGkpyFvfOb6zvvExUPGjmoATQHxMQjwhMKQlnUCwR39FmFwykuY-aHBBaAKql6N3ksJc0Nv4ME~3Rlg__" alt="Group">
+        </div>
+
+        <div class="info-box">
+            <h3>Hey There!</h3>
+            <p>We are fhaund it! Fhaund is a web-based lost and found system developed by the students of Holy Angel University’s School of Computing. This innovative platform was created in collaboration with the HAU Campus Services Office to provide a more efficient, accessible, and user-friendly solution for handling lost and found items within the university community. Our primary goal is to assist fellow Angelites by offering a streamlined and convenient method for reporting lost belongings and reclaiming found items. By leveraging technology, we aim to enhance campus services, promote responsible ownership, and foster a more connected and supportive university environment.</p>
+        </div>
+
+        <div class="what-box">
+            <h3>What is fHAUnd It?</h3>
+            <p>fhaund it is a lost and found web based system created by Holy Angel University’s School of Computing students, In collaboration with HAU Campus Services Office, Our goal is to provide a more convenient method of a lost and found service to our fellow angelites.</p>
+        </div>
+
+        <div class="mission-container">
+            <div class="mission-content">
+                <div class="mission-images">
+                    <img src="https://media-hosting.imagekit.io//06fa4cd017894b88/Open%20Peeps%20-%20Sitting.png?Expires=1836909968&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=tzBFsU5gsEGc~A6zAqzeWvVYmSrdbLqmSUX9stT50wIgqqOVRZOV-8Rz7LY2cEcc3sGxod6JTTSN1r9sFraAIerIfylbYiIBxT7z2h2MCDdjgNgAu2NR2J5WfDqxoEdRcwTpEjVvcX0MjsI0HJ1wCGSQwHQLjToBVWT-4KGfibpHv85UkAyz9m508xdjT4fLKr5q-DQYetBf5Jx4K2EtRiHipGKJ3Q3TdKT81oPxKX0Q35CKA87c7VvfofG~S8QNU1k19s8ctcAWfquTOx4AuIyHTtUx6xZgTkE6EV1CdkBqUF6RR7CZQOHv1v1qhSoYTMCZYiwWR72boLuqThpOQA__"" alt="Person 1" class="mission-image">
+                    <img src="https://media-hosting.imagekit.io//bc0951d0c4094054/Open%20Peeps%20-%20Sitting%20(1).png?Expires=1836909954&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=xtWmRZuTE41phNlxyyVYUpRsPNQuq7bItBQH9dBKyAQKFaximzHS64GwrFshXXBEzyPDDr9DfkJ6~gg~QsYredt6~xd2a6tMKwmyTGUBSkij-DziYZKzfgjPPdJCA00OKKgNVeAAyUBrW1GBq4uzwip0vTxLhkOz55oa~guBFOJcRjgVtpdWysYSuBVYCDwTeDLfP5GGKrdE~3ebw-l9521AlEapno~dMptHbCwtw8sHG9NTyrQtJgsejlxY2n2zdUzS~xOct75w0Y-ZJUU6RkwfJQwklbAyti0Wgr3-cqhzTeSOC9bLnChxR8bW8VwpXO0Qh4MKSd3menC-EIAE-w__" alt="Person 2" class="mission-image">
+                </div>
+                <div class="mission-text">
+                    <h2>Our Mission</h2>
+                    <p>Our mission is to provide a reliable, efficient, and technology-driven lost and found system that helps the Holy Angel University community recover misplaced items with ease. Through innovation and collaboration, we aim to create a secure and user-friendly platform that fosters accountability, trust, and convenience among Angelites.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--FOOTER-->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="https://media-hosting.imagekit.io//cbb3a3e574da49c7/logo.png?Expires=1836909364&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=CoJ4GQxW6pA2NLgA82XOWjDQ0no1xZ~rCSaHkheqgWPVZ8Vz1U9CDtuW7gFMIW6pQi0nNDnjL58w7pgx~6MZOXJbQuNxDMaBeTEjiqlR4NZdGV6QCXQ2ZcViayhj4-aBu6jePf4ZktBJFCUnxqXwH1GH7ArKL08ZpnKFEWwFu6FlBuL9yie31YfYTPEeZ8PjBmK1Ov-3Gl5MwqmKicqY8-y-hRe4i~7up9xREy7mty33O6L3sMgxB-j-lS~r2eWq8AsRsI3g5BDQQdumDXHtpkOJXnA8lSqO4TlU2dgk-mrXWdsW9XUzQBB9sFvNdotopmLJK5c5V3IlmFPm-9dnOw__" alt="FhaundIT Logo">
+            </div>
+            <div class="footer-text">
+                <p>In collaboration with HAU Campus Services Office</p>
+                <p><a href="https://hau.edu.ph">hau.edu.ph</a></p>
+                <p>#123 Holy Angel St, Angeles, 2009 Pampanga, Philippines</p>
+            </div>
+            <div class="footer-right">
+                <p>©2025 WD-302</p>
+                <p>All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html> 

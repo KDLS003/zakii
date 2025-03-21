@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page | Fhaund It</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        
+        .container {
+            width: 60%;
+            margin: 20px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .buttons button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            margin: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            background-color: #97B3AE;
+            color: black;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Admin Panel</h2>
+        <button onclick="logout()">Logout</button>
+        <div>
+            <label>Item Name:</label>
+            <input type="text" id="name" required><br>
+            <label>Item Description:</label>
+            <input type="text" id="description" required><br>
+            <label>Date Found:</label>
+            <input type="date" id="dateFound" required><br>
+            <label>Location Found:</label>
+            <input type="text" id="location" required><br>
+            <button onclick="addItem()">Add Item</button>
+        </div>
+        <h3>Lost Items</h3>
+        <div id="itemsList"></div>
+    </div>
+
+    <script>
+        function checkAdminAuth() {
+            let adminToken = localStorage.getItem("adminToken");
+            if (!adminToken) {
+                alert("Access denied. Please log in as an admin.");
+                window.location.href = "login.html";
+            }
+        }
+
+        function logout() {
+            localStorage.removeItem("adminToken");
+            window.location.href = "login.html";
+        }
+
+        function addItem() {
+            let name = document.getElementById("name").value;
+            let description = document.getElementById("description").value;
+            let dateFound = document.getElementById("dateFound").value;
+            let location = document.getElementById("location").value;
+            
+            fetch("http://localhost:3000/api/items", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ name, description, dateFound, location })
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message);
+                loadItems();
+            })
+            .catch(err => console.error(err));
+        }
+
+        function loadItems() {
+            fetch("http://localhost:3000/api/items")
+            .then(response => response.json())
+            .then(items => {
+                let container = document.getElementById("itemsList");
+                container.innerHTML = "";
+                items.forEach(item => {
+                    let div = document.createElement("div");
+                    div.innerHTML = `
+                        <p><strong>${item.name}</strong> - ${item.description} (${item.location})</p>
+                        <button onclick="markAsFound('${item._id}')">Mark as Found</button>
+                        <button onclick="deleteItem('${item._id}')">Delete</button>
+                    `;
+                    container.appendChild(div);
+                });
+            })
+            .catch(err => console.error("Error loading items:", err));
+        }
+
+        function markAsFound(id) {
+            fetch(`http://localhost:3000/api/items/${id}`, { method: "PUT" })
+            .then(response => response.json())
+            .then(() => {
+                alert("Item marked as found!");
+                loadItems();
+            })
+            .catch(err => console.error(err));
+        }
+
+        function deleteItem(id) {
+            fetch(`http://localhost:3000/api/items/${id}`, { method: "DELETE" })
+            .then(response => response.json())
+            .then(() => {
+                alert("Item deleted!");
+                loadItems();
+            })
+            .catch(err => console.error(err));
+        }
+
+        window.onload = function() {
+            checkAdminAuth();
+            loadItems();
+        };
+    </script>
+</body>
+</html>
